@@ -1,75 +1,67 @@
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { HeadlessNewsletter } from '@/components/headless/HeadlessNewsletter';
-import { Mail } from 'lucide-react';
-
-/**
- * EDITABLE UI COMPONENT - NewsletterSection
- * 
- * Componente UI completamente editable para suscripción a newsletter.
- * El agente IA puede modificar colores, textos, layout, etc.
- * 
- * Consume lógica de HeadlessNewsletter (solo muestra email input).
- */
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { HeadlessNewsletter } from '@/components/headless/HeadlessNewsletter'
+import { Leaf } from 'lucide-react'
 
 export const NewsletterSection = () => {
   return (
     <HeadlessNewsletter>
       {(logic) => (
-        <section className="bg-muted/30 py-16 border-y">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="bg-primary py-20 px-4">
+          <div className="max-w-2xl mx-auto text-center">
             {logic.success ? (
-              <div className="space-y-4">
-                <div className="flex justify-center">
-                  <div className="bg-primary/10 rounded-full p-3">
-                    <Mail className="h-8 w-8 text-primary" />
+              <div className="space-y-4 animate-fade-up">
+                <div className="flex justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full border border-primary-foreground/30 flex items-center justify-center">
+                    <Leaf className="h-7 w-7 text-primary-foreground/70" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  ¡Gracias por suscribirte!
+                <h3 className="font-playfair text-3xl font-medium text-primary-foreground">
+                  ¡Bienvenida al ritual!
                 </h3>
-                <p className="text-muted-foreground">
-                  Recibirás nuestras mejores ofertas y promociones pronto.
+                <p className="text-primary-foreground/60 font-light">
+                  Recibirás nuestras mejores ofertas, rituales y secretos de bienestar.
                 </p>
               </div>
             ) : (
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">
-                    ¿Quieres recibir correos promocionales?
-                  </h3>
-                  <p className="text-lg text-muted-foreground">
-                    Suscríbete a nuestro boletín y obtén ofertas exclusivas
-                  </p>
+              <div className="space-y-6 animate-fade-up">
+                <div className="flex justify-center mb-2">
+                  <div className="w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center">
+                    <Leaf className="h-5 w-5 text-primary-foreground/50" />
+                  </div>
                 </div>
-                
-                <form 
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    logic.handleSubscribe();
-                  }}
-                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                <p className="text-primary-foreground/50 text-xs tracking-[0.3em] uppercase">El Círculo Inoki</p>
+                <h3 className="font-playfair text-3xl md:text-4xl font-medium text-primary-foreground">
+                  Únete a tu ritual semanal
+                </h3>
+                <p className="text-primary-foreground/60 font-light leading-relaxed max-w-md mx-auto">
+                  Recibe rituales de bienestar, descuentos exclusivos y los primeros en conocer nuestras nuevas colecciones.
+                </p>
+
+                <form
+                  onSubmit={(e) => { e.preventDefault(); logic.handleSubscribe() }}
+                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-6"
                 >
-                  <Input 
+                  <Input
                     type="email"
                     placeholder="tu@correo.com"
                     value={logic.email}
                     onChange={(e) => logic.setEmail(e.target.value)}
                     disabled={logic.isSubmitting}
-                    className="flex-1"
                     required
+                    className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-primary-foreground/60 rounded-none h-12"
                   />
-                  <Button 
+                  <Button
                     type="submit"
                     disabled={logic.isSubmitting}
-                    className="sm:w-auto"
+                    className="bg-primary-foreground text-foreground hover:bg-primary-foreground/90 px-8 h-12 text-xs tracking-widest uppercase rounded-none font-medium shrink-0"
                   >
-                    {logic.isSubmitting ? 'Suscribiendo...' : 'Suscribirse'}
+                    {logic.isSubmitting ? 'Suscribiendo...' : 'Suscribirme'}
                   </Button>
                 </form>
-                
+
                 {logic.error && (
-                  <p className="text-sm text-destructive">
+                  <p className="text-sm text-destructive-foreground bg-destructive/20 px-4 py-2 rounded">
                     {logic.error}
                   </p>
                 )}
@@ -79,5 +71,5 @@ export const NewsletterSection = () => {
         </section>
       )}
     </HeadlessNewsletter>
-  );
-};
+  )
+}

@@ -1,14 +1,16 @@
 export const BrandLogoLeft = () => {
   return (
-    <a href="/" aria-label="Home" className="ml-2 flex items-center">
-      {/* TEMPLATE: Replace /logo.png with your brand logo */}
-      <img 
+    <a href="/" aria-label="Inoki — Rituales de Baño" className="flex items-center gap-2 group">
+      <img
         src="/logo.png"
-        alt="Logo"
-        className="h-8 w-auto object-contain" 
+        alt="Inoki"
+        className="h-10 w-auto object-contain"
         onError={(e) => {
-          e.currentTarget.style.display = 'none';
-          e.currentTarget.parentElement!.innerHTML = '<span class="text-xl font-bold text-black">YourBrand</span>';
+          e.currentTarget.style.display = 'none'
+          const span = document.createElement('span')
+          span.className = 'font-playfair text-xl font-semibold tracking-widest text-foreground'
+          span.textContent = 'INOKI'
+          e.currentTarget.parentElement?.appendChild(span)
         }}
       />
     </a>
