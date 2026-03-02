@@ -2,7 +2,7 @@
 (Auto-actualizado por Lovivo AI)
 
 ## Current State
-Tienda de baños de té artesanales inspirada en Inoki Bathhouse, para el mercado mexicano. Homepage completamente construida con diseño luxury wellness.
+Tienda de baños de té artesanales inspirada en Inoki Bathhouse, para el mercado mexicano. Homepage completamente construida con diseño luxury wellness. Página de producto rediseñada completamente al estilo Inoki.
 
 ## Brand
 - **Nombre:** Inoki México
@@ -38,6 +38,15 @@ Tienda de baños de té artesanales inspirada en Inoki Bathhouse, para el mercad
 - `src/components/CollectionCard.tsx` — overlay style con hover
 - `src/components/ui/ProductCardUI.tsx` — estilo luxury con hover effects
 - `src/components/NewsletterSection.tsx` — sección verde selva con estética Inoki
+- `src/pages/ui/ProductPageUI.tsx` — COMPLETAMENTE REDISEÑADO al estilo Inoki
+
+## ProductPageUI Sections (nueva estructura)
+1. **Breadcrumb** — Inicio / Tienda / Producto
+2. **Hero 2-col** — galería de imágenes (main + thumbnails) | detalles (título Playfair grande, estrellas, precio, variantes, qty, CTA verde, trust badges)
+3. **Botánicos** — emojis circulares dinámicos basados en el nombre del producto (lavanda, manzanilla, etc.)
+4. **Cómo Usar** — 3 pasos numerados con descripción
+5. **Por qué Inoki** — franja verde selva con 4 pilares (Natural, Artesanal, México, Eco-friendly)
+6. **Sticky CTA bar** — aparece al hacer scroll, desaparece cuando los botones están en pantalla
 
 ## Public Images
 - `/hero.webp` — Hero fullbleed (tina botanica)
@@ -46,17 +55,16 @@ Tienda de baños de té artesanales inspirada en Inoki Bathhouse, para el mercad
 - `/logo.png` — Logo Inoki con loto
 
 ## Active Plan: Next Sessions
-- [ ] Página de producto detallada con el estilo Inoki (ProductPageUI.tsx)
-- [ ] Página de blog con artículos de bienestar
-- [ ] Página de carrito y checkout estilizados
 - [ ] Página de colección dedicada
+- [ ] Página de blog con artículos de bienestar
 - [ ] Agregar testimonios/reviews section en homepage
 - [ ] Barra de prensa ("Como se vio en...")
-- [ ] Agregar más variantes de productos (aromas estacionales)
 - [ ] Configurar Stripe para pagos México (MXN)
+- [ ] CartUI y CheckoutUI estilizados al mismo nivel luxury
 
 ## User Preferences
 - Español para mercado mexicano
 - Estética: luxury spa, botanica, minimalista
 - Colores: verde selva + crema + dorado
 - Tipografía: Playfair Display serif + Inter light
+- Referencia principal: inokibathhouse.com
